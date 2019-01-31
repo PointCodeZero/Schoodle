@@ -15,8 +15,9 @@ function generateRandomURL() {
 module.exports = (knex) => {
 
   //NEW ROUTE  // when clicking event button
-  router.get('/events/new', (req, res) => {
-    res.render('new_event');
+  router.get('/new', (req, res) => {
+    console.log(111111)
+    res.render('new_event')
   });
 
   //CREATE ROUTE    // when you submit event details
@@ -44,10 +45,10 @@ module.exports = (knex) => {
           })
       });
     res.redirect(`/events/${shortUrl}`);
-  }
+  });
 
   //SHOW ROUTE
-  router.get('/events/:id', (req, res) => {
+  router.get('/:id', (req, res) => {
     let id = req.params.id;
     knex('events')
       .select('title', 'short_url')
@@ -65,11 +66,11 @@ module.exports = (knex) => {
   });
 
   //USER VERIFICATION ROUTE
-  router.get('/events/:id/user_verify', (req, res) => {
+  router.get('/:id/user_verify', (req, res) => {
     res.render('users_verification');
   });
 
-  router.post('/events/:id/user_verify', (req, res) => {
+  router.post('/:id/user_verify', (req, res) => {
     let id = req.params.id;
     knex('users')
       .insert({
@@ -83,11 +84,11 @@ module.exports = (knex) => {
   });
 
   //AVAILABILITY ROUTE
-  router.get('/events/:id/availability', (req, res) => {
+  router.get('/:id/availability', (req, res) => {
     res,render('availability');
   });
 
-  router.post('/events/:id/main', (req, res) => {
+  router.post('/:id/main', (req, res) => {
     let id = req.params.id;
     knex('availability')
       .insert({ response: req.body.rsvp })
@@ -98,7 +99,7 @@ module.exports = (knex) => {
   });
 
   //MAIN ROUTE
-  router.get('/events/:id/main', (req, res) => {
+  router.get('/:id/main', (req, res) => {
     let url_id = req.params.id;
     knex('events')
       .select('title', 'description', 'location')

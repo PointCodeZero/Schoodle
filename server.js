@@ -15,6 +15,7 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
 const usersRoutes = require("./routes/users");
+const eventsRoutes = require("./routes/events");
 
 
 
@@ -43,6 +44,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
+app.use("/events", eventsRoutes(knex));
 
 //Home page
 app.get("/", (req, res) => {
