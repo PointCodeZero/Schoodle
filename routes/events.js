@@ -28,7 +28,8 @@ module.exports = (knex) => {
         title: req.body.title,
         description: req.body.description,
         location: req.body.location,
-        short_url: shortUrl
+        shortURL: shortUrl,
+        users_id: 1
       })
       .then((results) => {
         res.json(results);
@@ -45,8 +46,8 @@ module.exports = (knex) => {
   // router.get('/:id', (req, res) => {
   //   let id = req.params.id;
   //   knex('events')
-  //     .select('title', 'short_url')
-  //     .where({short_url : id})
+  //     .select('title', 'shortURL')
+  //     .where({shortURL : id})
   //     .then((err, rows)=> {
   //       if (err) {
   //         console.log('error finding id')
@@ -97,7 +98,7 @@ module.exports = (knex) => {
   //   let url_id = req.params.id;
   //   knex('events')
   //     .select('title', 'description', 'location')
-  //     .where({short_url: url_id})
+  //     .where({shortURL: url_id})
   //     .then((err, rows) => {
   //       if (err) { console.log(err); }
   //       var templateVar = {
@@ -129,7 +130,13 @@ module.exports = (knex) => {
   // //UPDATE ROUTE
 
 
-  // //LOGIN ROUTE
+  //LOGIN ROUTE
+  router.get('/login/:id', (req, res) => {
+    req.session.users_id = req.params.id;
+
+    res.redirect('/');
+  })
+
   // router.post('/login/:id', (req, res) => {
   //   req.session.id = req.params.id
   //   res.redirect('/');
