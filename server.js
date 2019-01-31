@@ -44,9 +44,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
 
-// Home page
+//Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("landing");
 });
 
 app.listen(PORT, () => {
