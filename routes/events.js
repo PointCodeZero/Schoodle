@@ -22,42 +22,54 @@ module.exports = (knex) => {
   //CREATE ROUTE    // when you submit event details
   router.post('/', (req, res) =>  {
     const shortUrl = generateRandomURL();
-
-    knex('events')
-      .insert({
-        title: req.body.title,
-        description: req.body.description,
-        location: req.body.location,
-        shortURL: shortUrl,
-        users_id: 1
-      })
-      .then((results) => {
-        res.json(results);
-      })
-      .catch((err) => {
-        if (err) { console.log(err); }
-      })
-    knex("time_slots")
-      .insert({ option: req.body.option });
-    res.redirect(`/events/${shortUrl}`);
+    Promise.all([
+      knex('events')
+        .returning('id')
+        .insert({
+          title: req.body.title,
+          description: req.body.description,
+          location: req.body.location,
+          shortURL: shortUrl,
+          users_id: 1
+        })
+        .then((id) => {
+          knex("time_slots")
+            .insert({
+              option: req.body.option,
+              events_id: id[0]
+             })
+            .then((results) => {
+              res.redirect(`/events/${shortUrl}`);
+            })
+            .catch((err) => {
+              if (err) { console.log(err); }
+            })
+        })
+        .catch((err) => {
+          if (err) { console.log(err); }
+        })
+    ]);
   });
 
   // //SHOW ROUTE
   // router.get('/:id', (req, res) => {
   //   let id = req.params.id;
+  //   console.log(id)
   //   knex('events')
-  //     .select('title', 'shortURL')
+  //     .select()
   //     .where({shortURL : id})
   //     .then((err, rows)=> {
+  //       console.log(rows)
+  //       const event = rows[0];
   //       if (err) {
   //         console.log('error finding id')
   //       }
   //       var templateVar = {
-  //         title : rows[0].title,
-  //         shortURL : rows[1].shortUrl
+  //         title : event.title,
+  //         shortURL : event.shortUrl
   //       };
+  //       res.render('shortUrl', templateVar);
   //     })
-  //   res.render('shortUrl', templateVar);
   // });
 
   // //USER VERIFICATION ROUTE
@@ -131,11 +143,10 @@ module.exports = (knex) => {
 
 
   //LOGIN ROUTE
-  router.get('/login/:id', (req, res) => {
-    req.session.users_id = req.params.id;
-
-    res.redirect('/');
-  })
+  // router.get('/login/:id', (req, res) => {
+  //   req.session.users_id = req.params.id;
+  //   res.redirect('/');
+  // })
 
   // router.post('/login/:id', (req, res) => {
   //   req.session.id = req.params.id
