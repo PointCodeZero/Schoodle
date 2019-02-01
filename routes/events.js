@@ -22,7 +22,6 @@ module.exports = (knex) => {
   //CREATE ROUTE    // when you submit event details
   router.post('/', (req, res) =>  {
     const shortUrl = generateRandomURL();
-    Promise.all([
       knex('events')
         .returning('id')
         .insert({
@@ -48,7 +47,6 @@ module.exports = (knex) => {
         .catch((err) => {
           if (err) { console.log(err); }
         })
-    ]);
   });
 
   //SHOW ROUTE
@@ -58,7 +56,6 @@ module.exports = (knex) => {
       .select()
       .where({shortURL : id})
       .then((rows) => {
-        console.log(rows)
         const event = rows[0];
         var templateVar = {
           title : event.title,
