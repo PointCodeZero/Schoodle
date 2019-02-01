@@ -1,4 +1,5 @@
 exports.seed = function(knex, Promise) {
+  //seeding users table
   return Promise.all([
     knex.schema.raw('ALTER SEQUENCE users_id_seq RESTART WITH 1'),
     knex('users').del()
@@ -7,9 +8,13 @@ exports.seed = function(knex, Promise) {
         knex('users').insert({name: 'Stan', email: 'stan.solomean@gmail.com'}),
         knex('users').insert({name: 'Gagan', email: 'lalgagan@hotmail.com'}),
         knex('users').insert({name: 'Sarah', email: 'farahsaa@gmail.com'}),
-        knex('users').insert({name: 'Lucas'})
+        knex('users').insert({name: 'Lucas', email: 'lucas@lucas.lucas'})
         ]);
     }),
+
+    //seed for events table
+
+    // knex.schema.raw('ALTER SEQUENCE events_id_seq RESTART WITH 1'),
     // knex('events').del()
     // .then(function () {
     //   return Promise.all([
@@ -18,31 +23,36 @@ exports.seed = function(knex, Promise) {
     //       description: 'Awesome party for my birthday!!!',
     //       location: 'My place, @lighthouselabs',
     //       shortURL: 'o3i1h52o3ih5',
-    //       users_id: 4
+    //       users_id: 2
     //     })
     //   ]);
     // }),
 
+    //seed for time_slots table
+
+    // knex.schema.raw('ALTER SEQUENCE time_slots_id_seq RESTART WITH 1'),
     // knex('time_slots').del()
     // .then(function () {
     //   return Promise.all([
     //     knex('time_slots').insert({
     //       option: '2019-02-04-1700',
-    //       events_id: 11
+    //       events_id: 1
     //     })
     //   ]);
     // }),
 
-    // knex('time_preferences').del()
+    //seed for availability table 
+
+    // 
+    // knex('availability').del()
     // .then(function () {
     //   return Promise.all([
-    //     knex('time_preferences').insert({
-    //       users_id: 30,
-    //       time_slots_id: 2
+    //     knex('availability').insert({
+    //       users_id: 1,
+    //       time_slots_id: 1
     //     })
     //   ]);
     // }),
 
-    //we can .then more seed for other tables
-    ])
+  ])
 };

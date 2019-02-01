@@ -28,8 +28,8 @@
                 <p>Location</p> -->
                 <h3>In order to proceed with your response to the invitation, you first need to enter your info:</h3>
                 <form id = "form03" action="/events/<%=shortURL%>/user_verify" method="POST">
-                    <input class="input" id="user_name" type="text" name="name" placeholder="Name" >
-                    <input class="input" id="user_email" type="email" name="email" placeholder="Email" >
+                    <input class="input" id="user_name" type="text" name="name" placeholder="Name" required>
+                    <input class="input" id="user_email" type="email" name="email" placeholder="Email" required >
                     <input id="proceed" type="submit" value="Proceed!">
                 </form>
             </div>

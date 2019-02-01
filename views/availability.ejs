@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<head>Welcome to Schoodle!
-    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
-    
-    <title>What are your options?</title>
+<head>
+    <meta charset="utf-8"/>
+    <title>Schoodle - Share the Link!</title>
     <% include partials/header %>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    
 </head>
 <% include partials/slideshow %>
 <body>
-    <main class= "container">
-        
-        <h1> You are invited to LHL's birthday! </h1>
-        <p>Come to 662 King Street</p>
-        <form id= "345" action="/events/<%=shortURL%>/main" method="POST">
-            <input type="radio" name="RSVP" value="Option 1"> <!-- Lighthouse <br> -->
-            <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
-                <input type="radio" name="z" value="Option 3"> King -->
-            </form>
-            
-        </body>
-        <% include partials/footer %>
-        </html>
+    <main class = "container">
+        <div class="sub-container">
+            <h1> You are invited to an event on <%=option%>! </h1>
+            <p>Come to LOCATION </p>
+            <form id= "form04" action="/events/<%=shortURL%>/main" method="POST">
+                <input type="submit" name="YES" value="Yes, I wanna go">
+                <!-- <input type="button" name="NO" value="No, I don't wanna go"> -->
+                <!-- Lighthouse <br> -->
+                <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
+                    <input type="radio" name="z" value="Option 3"> King -->
+                </form>
+                
+                <form id= "form05" action="/" method="GET" onclick="alert('Thank you, bye!');">
+                    <input type="submit" name="NO" value="No, I don't wanna go">
+                </form>
+            </div>
+        </main>
+    </body>
+    <% include partials/footer %>
+    </html>
+    
