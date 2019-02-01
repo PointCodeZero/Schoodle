@@ -30,10 +30,10 @@ module.exports = (knex) => {
           description: req.body.description,
           location: req.body.location,
           shortURL: shortUrl,
-          users_id: 1
+          users_id: 2
         })
         .then((id) => {
-          knex("time_slots")
+          knex('time_slots')
             .insert({
               option: req.body.option,
               events_id: id[0]
@@ -51,26 +51,25 @@ module.exports = (knex) => {
     ]);
   });
 
-  // //SHOW ROUTE
-  // router.get('/:id', (req, res) => {
-  //   let id = req.params.id;
-  //   console.log(id)
-  //   knex('events')
-  //     .select()
-  //     .where({shortURL : id})
-  //     .then((err, rows)=> {
-  //       console.log(rows)
-  //       const event = rows[0];
-  //       if (err) {
-  //         console.log('error finding id')
-  //       }
-  //       var templateVar = {
-  //         title : event.title,
-  //         shortURL : event.shortUrl
-  //       };
-  //       res.render('shortUrl', templateVar);
-  //     })
-  // });
+  //SHOW ROUTE
+  router.get('/:id', (req, res) => {
+    let id = req.params.id;
+    knex('events')
+      .select()
+      .where({shortURL : id})
+      .then((rows) => {
+        console.log(rows)
+        const event = rows[0];
+        var templateVar = {
+          title : event.title,
+          shortURL : event.shortUrl
+        };
+        res.render('shortUrl', templateVar);
+      })
+      .catch((err) => {
+        if (err) { console.log(err); }
+      })
+  });
 
   // //USER VERIFICATION ROUTE
   // router.get('/:id/user_verify', (req, res) => {
