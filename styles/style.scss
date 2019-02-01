@@ -1,7 +1,96 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+$font-stack:    Arial, Helvetica, sans-serif;
+$primary-color: rgb(66, 66, 66);
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+}
+
+* {box-sizing: border-box}
+
+
+
+nav {  
+  #navbar-header {
+    background: #434E3C;
+    color: white;
+    width:70%;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+
+  }
+  #navbar-header h3 {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    padding-top: 1em;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    padding-top: 0.4em;
+  }
+}
+
+body {
+  background-color: #ccc;
+}
+
+.container {
+  width: 70%;
+  align-self: center;
+  background-color: #434E3C;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1em;
+  padding-bottom: 10%;
+}
+
+.sub-container {
+  border-radius: 5px;
+  background: white;
+  margin: 2em;
+}
+
+.sub-container #welcome {
+  text-align: center;
+}
+
+.sub-container #landing-text {
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+
+  padding: 4%;
+}
+
+#form02 textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+#form02 textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#create-event-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+#footer {
+  width: 20%;
+  margin: auto;
 }

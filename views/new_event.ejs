@@ -1,21 +1,41 @@
 <!-- form with title, location, description, options(date, just one for now)
-button create event
-
-
-/events/new -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>New Event</title>
-  <% include partials/header %>
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/style.css" type="text/css" />
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-</head>
-
-<body>
-  <h1>New event!!!!</h1>
-</body>
-</html>
+  button create event
+  
+  
+  /events/new -->
+  
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    
+    <title>Schoodle - Create New Event</title>
+    <% include partials/header %>
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  </head>
+  
+  <body>
+    <main class = "container">
+      <div class="sub-container">
+        
+        <h2 class="header">
+          Fill in your event info
+        </h2>
+        <form id= "form02" action="/events" method="POST">
+          <textarea id="input_title" name="title" placeholder="Name your event!"></textarea>
+          <textarea id="input_description" name="description" placeholder="Description"></textarea>
+          <textarea id="input_location" name="location" placeholder="Location"></textarea>
+          <textarea id="input_datetime" name="option-1" placeholder="Date and time option 1"></textarea>
+          <textarea id="input_datetime" name="option-2" placeholder="Date and time option 2"></textarea>
+          <textarea id="input_datetime" name="option-3" placeholder="Date and time option 3"></textarea>
+          <input id="create-event-button" type="submit" value="Create Event!">
+        </form>
+      </div>
+    </main>
+  </body>
+  <% include partials/footer %>
+  </html>
+  

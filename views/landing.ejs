@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>LANDING</title>
-  <% include partials/header %>
+  <meta charset="utf-8"/>
+  
+  <title>Schoodle</title>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/style.css" type="text/css" />
@@ -10,10 +11,22 @@
 </head>
 
 <body>
-  <h1>Hello World!</h1>
+  <main class="container">
+    <div class="sub-container">
+      <h1 id="welcome">Hello and Welcome to Schoodle!</h1>
+      <p id="landing-text"> Make the most amazing events with just a click of the 
+        <span>
+          <form id="form01" action="/events/new" method="GET">
+            <input id="new-event-button" type="submit" value="button!">
+          </form>
+        </span>
+      </p>
+    </div>
+  </main>
 </body>
+<% include partials/footer %>
 </html>
 
 
 <!--
-button create event takes to -->
+  button create event takes to -->
