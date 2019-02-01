@@ -1,0 +1,12 @@
+head {
+  float: center;
+  color: white;
+  font-size: 36px;
+}
+
+body {
+  margin: 0;
+  background-color: #F0F0F0;
+  font-family: monospace;
+}
+
