@@ -1,0 +1,26 @@
+$font-stack: san-sherif;
+$primary color: white;
+
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightblue;
+  font-family: san-sherif;
+
+}
+
+.body {
+  padding: 10px;
+}
+
+
+head {
+  float: center;
+  color: white;
+  font-size: 36px;
+}
+
+
