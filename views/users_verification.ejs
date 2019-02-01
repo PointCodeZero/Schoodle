@@ -1,7 +1,7 @@
 <!-- form with name and email and button submit, redirects to availability
-    
+
     events/:id/user_verify -->
-    
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -24,14 +24,14 @@
                 <p>Description</p>
                 <p>Location</p>
                 <h3>In order to proceed with your response to the invitation, you first need to enter your info:</h3>
-                <form action="/events/:id/availability" method="POST">
-                    <input id="user_name" type="text" name="user_name" placeholder="Name" >
+                <form action="/events/<%=shortURL%>/user_verify" method="POST">
+                    <input id="user_name" type="text" name="name" placeholder="Name" >
                     <input id="user_email" type="email" name="email" placeholder="Email" >
                     <input type="submit" value="Proceed!">
-                </form>            
+                </form>
             </div>
         </main>
     </body>
     <% include partials/footer %>
     </html>
-    
+
