@@ -1,14 +1,39 @@
 <!-- just show the shorturl
-hey, this is your link to this event as organizer
-
-details of event
-
-if click this shorturl it takes to user_verification
-
-
-/events/:id -->
-
-<!DOCTYPE html>
-<html lang="en">
-<body>HELLO this is shorturl</body>
-</html>
+    hey, this is your link to this event as organizer
+    
+    details of event
+    
+    on click this shorturl it takes to user_verification
+    
+    
+    /events/:id -->
+    
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        
+        <title>Schoodle - Share the Link!</title>
+        <% include partials/header %>
+        <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+        <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+        <link rel="stylesheet" href="/styles/style.css" type="text/css" />
+        <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    </head>
+    
+    <body>
+        <main class = "container">
+            <div class="sub-container">
+                
+                <h3> 
+                    Share with your friends!
+                    <a href="http://localhost:3000/events/<%= shortURL %>" >localhost:3000/events/<%= shortURL %></a>
+                </h3>
+                <img id="party" src = "https://nyc3.digitaloceanspaces.com/servercarlosesverde/elevenews/wp-content/uploads/2018/12/12222219/Party.jpg">
+            </div>
+        </main>
+    </body>
+    <% include partials/footer %>
+    </html>
+    
