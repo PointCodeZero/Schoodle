@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>Welcome to Schoodle!
-
-<link rel="stylesheet" href="/styles/style.css" type="text/css" />
-
-<title>What are your options?</title>
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
+    
+    <title>What are your options?</title>
     <% include partials/header %>
 </head>
 <% include partials/slideshow %>
-  <body>
+<body>
     <main class= "container">
-      <div class= "sub-container">
-
-    <p>You are invited to LHL's birthday! Come to 662 King Street</p>
-
-
-      </div>
-    </main>
-    <form id= "345" action="/> events/<%=shortURL%>/main" method="POST">
-      <input type="radio" name="RSVP" value="Option 1"> <!-- Lighthouse <br> -->
-     <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
-      <input type="radio" name="z" value="Option 3"> King -->
-    </form>
-
-</body>
-  <% include partials/footer %>
-</html>
-
-
+        
+        <h1> You are invited to LHL's birthday! </h1>
+        <p>Come to 662 King Street</p>
+        <form id= "345" action="/events/<%=shortURL%>/main" method="POST">
+            <input type="radio" name="RSVP" value="Option 1"> <!-- Lighthouse <br> -->
+            <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
+                <input type="radio" name="z" value="Option 3"> King -->
+            </form>
+            
+        </body>
+        <% include partials/footer %>
+        </html>

@@ -1,14 +1,3 @@
-<!-- just show the shorturl
-    hey, this is your link to this event as organizer
-
-    details of event
-
-    on click this shorturl it takes to user_verification
-
-
-    /events/:id -->
-
-
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -20,19 +9,17 @@
         <link rel="stylesheet" href="/styles/style.css" type="text/css" />
         <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
         <script type="text/javascript" src="/scripts/app.js"></script>
-
     </head>
     <% include partials/slideshow %>
     <body>
         <main class = "container">
             <div class="sub-container">
-                <h3>
+                <h3 style="margin-bottom: 0"> 
                     Share with your friends!
-                    <a href="http://localhost:3000/events/<%= shortURL %>/user_verify" >localhost:3000/events/<%= shortURL %></a>
                 </h3>
+                <a href="http://localhost:3000/events/<%= shortURL %>/user_verify" >localhost:3000/events/<%= shortURL %>/user_verify</a>
             </div>
         </main>
     </body>
     <% include partials/footer %>
     </html>
-
