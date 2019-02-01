@@ -1,29 +1,24 @@
-<!-- options for date/time
-
-jan 24 4pm = yes/no
-option
-option
-click one option only once
-
-partial header
-
-body should show 
-title description location
-
-option 1
-option 2
-option 3
-
-options should send to /events/:id/main
-
-/events/:id/availability -->
-
 <!DOCTYPE html>
 <html lang="en">
-<body>HELLO this is availability
 
-
-
-    <%= title, description %>
-</body>
-</html>
+<head>Welcome to Schoodle!
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
+    
+    <title>What are your options?</title>
+    <% include partials/header %>
+</head>
+<% include partials/slideshow %>
+<body>
+    <main class= "container">
+        
+        <h1> You are invited to LHL's birthday! </h1>
+        <p>Come to 662 King Street</p>
+        <form id= "345" action="/events/<%=shortURL%>/main" method="POST">
+            <input type="radio" name="RSVP" value="Option 1"> <!-- Lighthouse <br> -->
+            <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
+                <input type="radio" name="z" value="Option 3"> King -->
+            </form>
+            
+        </body>
+        <% include partials/footer %>
+        </html>

@@ -1,3 +1,4 @@
+// Global font parameters
 $font-stack:    Arial, Helvetica, sans-serif;
 $primary-color: rgb(66, 66, 66);
 
@@ -8,6 +9,7 @@ body {
 
 * {box-sizing: border-box}
 
+// Navigation bar parameters
 nav {  
   #navbar-header {
     opacity: 0.9;
@@ -18,7 +20,6 @@ nav {
     margin: auto;
     text-align: center;
     text-decoration: none;
-    
   }
   #navbar-header h3 {
     margin-top: 0;
@@ -33,9 +34,10 @@ nav {
 }
 
 body {
-  background-color: #ccc;
+  background-color: rgb(148, 107, 132);
 }
 
+// Main container / purple frame
 .container {
   opacity: 0.9;
   z-index: 1;
@@ -48,6 +50,7 @@ body {
   padding-bottom: 1%;
 }
 
+// White box inside purple
 .sub-container {
   opacity: 1 !important;
   z-index: 1;
@@ -56,19 +59,58 @@ body {
   margin: 2em;
 }
 
-.sub-container #welcome {
-  text-align: center;
+//Centering text, making button prettier
+.sub-container {
+  #welcome {
+    text-align: center;
+  }
+  #landing-text {
+    text-align: center;
+  }
+  #new-event-button {
+    padding: 1%;
+    margin: 1%;
+  }
 }
 
-.sub-container #landing-text {
+// Headings
+.sub-container h1, h2, h3, a {
   text-align: center;
+  padding-top: .4em;
+  padding-bottom: .2em;
+  display: block;
 }
 
+// Centering header
 .header {
   text-align: center;
   padding: 4%;
 }
 
+//User login and email fields and button
+#form03 .input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+#form02 .input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+#proceed {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+// New event text fields and button
 #form02 textarea {
   width: 100%;
   padding: 15px;
@@ -77,12 +119,10 @@ body {
   border: none;
   background: #f1f1f1;
 }
-
 #form02 textarea:focus {
   background-color: #ddd;
   outline: none;
 }
-
 #create-event-button {
   background-color: #4CAF50;
   color: white;
@@ -93,13 +133,16 @@ body {
   opacity: 0.9;
 }
 
+// Footer 
 #footer {
   z-index: 1;
-  width: 15%;
+  width: 20%;
   margin-left: auto;
   margin-right: auto;
+  text-size-adjust: auto;
 }
 
+// Background slideshow functionality
 .slideshow { 
   position: fixed;
   width: 100%;
@@ -111,7 +154,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .slideshow li { 
   width: 100%;
   height: 100%;
@@ -125,7 +167,6 @@ body {
   z-index: -1; 
   animation: imageAnimation 25s linear infinite; 
 }
-
 .slideshow li:nth-child(1) { 
   background-image: url(https://nyc3.digitaloceanspaces.com/servercarlosesverde/elevenews/wp-content/uploads/2018/12/12222219/Party.jpg) 
 }
@@ -145,7 +186,6 @@ body {
   background-image: url(https://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/29007-istock-642987348_0.jpg?itok=zjenzqTF&resize=1100x1100);
   animation-delay: 20s; 
 }
-
 @keyframes imageAnimation { 
   0% { 
     opacity: 0; 
