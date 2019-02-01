@@ -1,52 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>Welcome to Schoodle!
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $("p").hide();
-  });
-});
-</script>
-</head>
-
 <title>What are your options?</title>
-
-partial header
-
-body should show 
-title description location
-
-option 1
-option 2
-option 3
-
-options should send to /events/:id/main
-
+    <% include partials/header %>
+</head>
+<% include partials/slideshow %>
   <body>
-
-    <p>You are invited to LHL's birthday! Come to 666 King Street</p>
-
-    <form id= "345" action="/id:/main" method="POST">
-      <input type="radio" name="x" value="Option 1"> Lighthouse <br>
-      <input type="radio" name="y" value="Option 2"> Labs <br>
-      <input type="radio" name="z" value="Option 3"> King
+    <main class= "container">
+    <h1> You are invited to LHL's birthday! </h1>
+    <p>Come to 662 King Street</p>
+    <form id= "345" action="/events/<%=shortURL%>/main" method="POST">
+      <input type="radio" name="RSVP" value="Option 1"> <!-- Lighthouse <br> -->
+     <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
+      <input type="radio" name="z" value="Option 3"> King -->
     </form>
 
-  </body>
-</html>
-
-
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
-<html lang="en">
-<body>HELLO this is availability
-
-
-
-    <%= title, description %>
 </body>
+  <% include partials/footer %>
 </html>
->>>>>>> 38b99c74e59f2c4a134ef595f6e14c4a3c83a56a
+
+
