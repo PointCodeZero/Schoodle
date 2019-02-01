@@ -14,15 +14,14 @@ function generateRandomURL() {
 
 module.exports = (knex) => {
 
-  //NEW ROUTE  // when clicking event button
+  //NEW ROUTE
   router.get('/new', (req, res) => {
-    res.render('new_event')
+    res.render('new_event');
   });
 
-  //CREATE ROUTE    // when you submit event details
+  //CREATE ROUTE
   router.post('/', (req, res) =>  {
     const shortUrl = generateRandomURL();
-    Promise.all([
       knex('events')
         .returning('id')
         .insert({
@@ -33,45 +32,32 @@ module.exports = (knex) => {
           users_id: 1
         })
         .then((id) => {
-          console.log(id)
-
           knex("time_slots")
-        .insert({
-          option: req.body.option,
-          events_id: id[0]
-         })
-
-        .then((results) => {
-          console.log(results)
-          res.redirect(`/events/${shortUrl}`);
+            .insert({
+              option: req.body.option,
+              events_id: id[0]
+            })
+            .then((results) => {
+              res.redirect(`/events/${shortUrl}`);
+            })
         })
         .catch((err) => {
-          if (err) { console.log(err); }
+          console.log(err);
         })
-        })
-        .catch((err) => {
-          if (err) { console.log(err); }
-        }),
-    ]);
-    // res.redirect(`/events/${shortUrl}`);
-
   });
 
   //SHOW ROUTE
   router.get('/:id', (req, res) => {
     let id = req.params.id;
     knex('events')
-      .returning('shortURL')
       .select()
       .where({shortURL : id})
       .then((results)=> {
-        console.log("this is the result :", results)
+        const result = results[0];
         var templateVar = {
-          title : results[0].title,
-          shortURL : results[0].shortURL
-
+          title : result.title,
+          shortURL : result.shortURL
         };
-        console.log(templateVar)
         res.render('shortUrl', templateVar);
       })
        .catch((err) => {
@@ -83,19 +69,18 @@ module.exports = (knex) => {
   router.get('/:id/user_verify', (req, res) => {
     let id = req.params.id;
     knex('events')
-      .returning('shortURL')
       .select()
       .where({shortURL : id})
       .then((results)=> {
+        const result = results[0];
         var templateVar = {
-          shortURL : results[0].shortURL
+          shortURL : result.shortURL
         };
         res.render('users_verification', templateVar);
       })
        .catch((err) => {
         console.log(err);
       });
-
   });
 
   router.post('/:id/user_verify', (req, res) => {
@@ -106,58 +91,52 @@ module.exports = (knex) => {
         email: req.body.email
       })
       .then(() => {
-        res.redirect(`/events/${id}/availability`)
+        res.redirect(`/events/${id}/availability`);
       })
       .catch((err) => {
         console.log(err);
       });
-
   });
 
   //AVAILABILITY ROUTE
   router.get('/:id/availability', (req, res) => {
-    let shortUrlId = req.params.id
+    let shortUrlId = req.params.id;
     knex("events")
-    .select()
-    .where({shortURL: shortUrlId})
-    .then((rows) => {
-      knex('time_slots')
-        .select()
-        .where({
-          events_id: rows[0].id
-        })
-        .then((results) => {
-          const timeSlots = results[0]
-          var templateVar = {
-            option: timeSlots.option,
-            shortURL: rows[0].shortURL
-          }
-          res.render('availability', templateVar)
-
-        })
-        .catch((err) => {
-      console.log(err);
-    });
-
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .select()
+      .where({shortURL: shortUrlId})
+      .then((rows) => {
+        const row = rows[0];
+        knex('time_slots')
+          .select()
+          .where({ events_id: row.id })
+          .then((results) => {
+            const timeSlots = results[0];
+            var templateVar = {
+              option: timeSlots.option,
+              shortURL: row.shortURL
+            };
+            res.render('availability', templateVar);
+          })
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
-//availibility response route
+
+  //AVAILABILITY POST ROUTE
   router.post('/:id/main', (req, res) => {
     let id = req.params.id;
     knex('availability')
       .insert({ response: req.body.rsvp })
       .then(() => {
-        res.redirect(`/events/${id}/main`);s
+        res.redirect(`/events/${id}/main`);
       })
       .catch((err) =>{
-        console.log(err)
+        console.log(err);
       })
   });
 
-//MAIN ROUTE
+  //MAIN ROUTE
   router.get('/:id/main', (req, res) => {
     let shortUrlId = req.params.id;
     knex('events')
@@ -170,7 +149,7 @@ module.exports = (knex) => {
           description: row.description,
           location: row.location,
           shortURL: row.shortURL
-        }
+        };
         knex('users')
           .select()
           .where({id: row.users_id})
@@ -192,42 +171,38 @@ module.exports = (knex) => {
       })
   });
 
-  // //EDIT ROUTE
-
+  //EDIT ROUTE
   router.get('/:id/edit', (req,res) => {
-    let shortURL = req.params.id
+    let shortURL = req.params.id;
     knex('events')
-    .select()
-    .where({shortURL: shortURL})
-    .then((results) => {
-      const result = results[0]
-      knex('time_slots')
       .select()
-      .where({events_id: result.id})
-      .then((rows) => {
-        const row = rows[0]
-        knex('availability')
+      .where({shortURL: shortURL})
+      .then((results) => {
+        const result = results[0];
+        knex('time_slots')
         .select()
-        .where({time_slots_id: row.id})
-        .then((responses) => {
-          const response = responses[0]
-           var templateVar = {
-        option : response.response,
-        shortURL : result.shortURL
-
-      }
-      res.render('edit', templateVar)
-
+        .where({events_id: result.id})
+        .then((rows) => {
+          const row = rows[0];
+          knex('availability')
+          .select()
+          .where({time_slots_id: row.id})
+          .then((responses) => {
+            const response = responses[0];
+            var templateVar = {
+              option : response.response,
+              shortURL : result.shortURL
+            };
+            res.render('edit', templateVar)
+          })
         })
       })
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 
-
-  // //UPDATE ROUTE
+  //UPDATE ROUTE
   router.put('/:id/main', (req, res) => {
     let id = req.params.id;
     knex('events')
@@ -244,12 +219,9 @@ module.exports = (knex) => {
           })
       })
       .catch((err) => {
-         console.log(err)
+         console.log(err);
       })
   });
-
-
-
 
   return router;
 
