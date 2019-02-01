@@ -85,19 +85,19 @@ module.exports = (knex) => {
     res.render('users_verification');
   });
 
-  // router.post('/:id/user_verify', (req, res) => {
-  //   let id = req.params.id;
-  //   knex('users')
-  //     .insert({
-  //       name: req.body.name,
-  //       email: req.body.email
-  //     })
-  //     .then(res.redirect(`/events/${id}/availability`))
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
+  router.post('/:id/user_verify', (req, res) => {
+    let id = req.params.id;
+    knex('users')
+      .insert({
+        name: req.body.name,
+        email: req.body.email
+      })
+      .then(res.redirect(`/events/${id}/availability`))
+      .catch((err) => {
+        console.log(err);
+      });
 
-  // });
+  });
 
   //AVAILABILITY ROUTE
   router.get('/:id/availability', (req, res) => {
