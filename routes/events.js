@@ -118,18 +118,19 @@ module.exports = (knex) => {
   router.get('/:id/availability', (req, res) => {
     let shortUrlId = req.params.id
     knex("events")
-    .select('id')
+    .select()
     .where({shortURL: shortUrlId})
-    .then((id) => {
+    .then((rows) => {
       knex('time_slots')
         .select()
         .where({
-          events_id: id[0].id
+          events_id: rows[0].id
         })
         .then((results) => {
           const timeSlots = results[0]
           var templateVar = {
-            option: timeSlots.option
+            option: timeSlots.option,
+            shortURL: rows[0].shortURL
           }
           res.render('availability', templateVar)
 
@@ -143,64 +144,112 @@ module.exports = (knex) => {
       console.log(err);
     });
   });
-
+//availibility response route
   router.post('/:id/main', (req, res) => {
     let id = req.params.id;
     knex('availability')
       .insert({ response: req.body.rsvp })
-      .catch((err) => {
-        console.log(err);
-      });
-    res.redirect(`/events/${id}/main`);
+      .then(() => {
+        res.redirect(`/events/${id}/main`);s
+      })
+      .catch((err) =>{
+        console.log(err)
+      })
   });
 
-  // //MAIN ROUTE
-  // router.get('/:id/main', (req, res) => {
-  //   let url_id = req.params.id;
-  //   knex('events')
-  //     .select('title', 'description', 'location')
-  //     .where({shortURL: url_id})
-  //     .then((err, rows) => {
-  //       if (err) { console.log(err); }
-  //       var templateVar = {
-  //         title: rows[0].title,
-  //         description: rows[1].description,
-  //         location: rows[2].location
-  //       }
-  //       knex('users')
-  //         .select('name')
-  //         .where({id: users_id}) //ask a mentor
-  //         .then((err, rows) => {
-  //           if (err) { console.log(err); }
-  //           templateVar.user_name = rows[0].name
-  //         })
-  //         knex('time_slots')
-  //           .select('option')
-  //           .where({event_id : id}) // ask a mentor
-  //           .then((err, rows) => {
-  //             if (err) { console.log(err); }
-  //             templateVar.option = rows[0].option
-  //           });
-  //     })
-  //   res.render('main', templateVar);
-  // });
+//MAIN ROUTE
+  router.get('/:id/main', (req, res) => {
+    let shortUrlId = req.params.id;
+    knex('events')
+      .select()
+      .where({shortURL: shortUrlId})
+      .then((rows) => {
+        const row = rows[0];
+        var templateVar = {
+          title: row.title,
+          description: row.description,
+          location: row.location,
+          shortURL: row.shortURL
+        }
+        knex('users')
+          .select()
+          .where({id: row.users_id})
+          .then((user_rows) => {
+            const user_row = user_rows[0];
+            templateVar.name = user_row.name;
+          })
+            knex('time_slots')
+              .select()
+              .where({events_id : row.id})
+              .then((options) => {
+                const time_slot = options[0];
+                templateVar.option = time_slot.option;
+                res.render('main', templateVar);
+              });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  });
 
   // //EDIT ROUTE
 
+  router.get('/:id/edit', (req,res) => {
+    let shortURL = req.params.id
+    knex('events')
+    .select()
+    .where({shortURL: shortURL})
+    .then((results) => {
+      const result = results[0]
+      knex('time_slots')
+      .select()
+      .where({events_id: result.id})
+      .then((rows) => {
+        const row = rows[0]
+        knex('availability')
+        .select()
+        .where({time_slots_id: row.id})
+        .then((responses) => {
+          const response = responses[0]
+           var templateVar = {
+        option : response.response,
+        shortURL : result.shortURL
+
+      }
+      res.render('edit', templateVar)
+
+        })
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
+
 
   // //UPDATE ROUTE
+  router.put('/:id/main', (req, res) => {
+    let id = req.params.id;
+    knex('events')
+      .select()
+      .where({ shortURL : id })
+      .then((rows) => {
+        const event = rows[0];
+        knex('time_slots')
+          .select()
+          .where({ events_id : event.id })
+          .update({ option : req.body.option })
+          .then(() => {
+            res.redirect(`/events/${id}/main`);
+          })
+      })
+      .catch((err) => {
+         console.log(err)
+      })
+  });
 
 
-  //LOGIN ROUTE
-  // router.get('/login/:id', (req, res) => {
-  //   req.session.users_id = req.params.id;
-  //   res.redirect('/');
-  // })
 
-  // router.post('/login/:id', (req, res) => {
-  //   req.session.id = req.params.id
-  //   res.redirect('/');
-  // });
 
   return router;
 
