@@ -2,14 +2,22 @@
 <html lang="en">
 
 <head>Welcome to Schoodle!
+
+<link rel="stylesheet" href="/styles/style.css" type="text/css" />
+
 <title>What are your options?</title>
     <% include partials/header %>
 </head>
 <% include partials/slideshow %>
   <body>
     <main class= "container">
-    <h1> You are invited to LHL's birthday! </h1>
-    <p>Come to 662 King Street</p>
+      <div class= "sub-container">
+
+    <p>You are invited to LHL's birthday! Come to 662 King Street</p>
+
+
+      </div>
+    </main>
     <form id= "345" action="/events/<%=shortURL%>/main" method="POST">
       <input type="radio" name="RSVP" value="Option 1"> <!-- Lighthouse <br> -->
      <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
