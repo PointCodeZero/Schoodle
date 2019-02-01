@@ -13,6 +13,7 @@ const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
+const session     = require('express-session');
 
 // const usersRoutes = require("./routes/users");
 const eventsRoutes = require("./routes/events");
@@ -28,6 +29,13 @@ app.use(sass({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 // Seperated Routes for each Resource
 
