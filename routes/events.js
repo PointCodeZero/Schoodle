@@ -16,7 +16,6 @@ module.exports = (knex) => {
 
   //NEW ROUTE  // when clicking event button
   router.get('/new', (req, res) => {
-    console.log(111111)
     res.render('new_event')
   });
 

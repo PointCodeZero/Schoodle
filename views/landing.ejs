@@ -2,31 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  
   <title>Schoodle</title>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/style.css" type="text/css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 </head>
-
+<% include partials/slideshow %>
 <body>
   <main class="container">
     <div class="sub-container">
       <h1 id="welcome">Hello and Welcome to Schoodle!</h1>
-      <p id="landing-text"> Make the most amazing events with just a click of the 
+      <h4 id="landing-text"> Make the most amazing events <br> with just a click of the 
         <span>
           <form id="form01" action="/events/new" method="GET">
             <input id="new-event-button" type="submit" value="button!">
           </form>
         </span>
-      </p>
+      </h4>
     </div>
   </main>
 </body>
 <% include partials/footer %>
 </html>
-
-
-<!--
-  button create event takes to -->
