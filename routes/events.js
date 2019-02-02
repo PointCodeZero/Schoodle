@@ -91,15 +91,9 @@ module.exports = (knex) => {
         name: req.body.name,
         email: req.body.email
       })
-      // .then((id) => {
-      //   knex('availability')
-      //     .insert({
-      //       users_id: id[0]
-      //     })
-          .then(() => {
-            res.redirect(`/events/${id}/availability`);
-          })
-      // })
+      .then(() => {
+        res.redirect(`/events/${id}/availability`);
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -157,8 +151,10 @@ module.exports = (knex) => {
                     res.redirect(`/events/${id}/main`);
                   })
               })
-              })
-
+          })
+      })
+      .catch((err) => {
+        console.log(err);
       })
   });
 

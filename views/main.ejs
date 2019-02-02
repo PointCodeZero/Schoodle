@@ -30,18 +30,18 @@
 
         <% availability.forEach(option => { %>
           <td><%=  %> </td>
-          <% } %>
+          <% }) %>
 
           <% users.forEach(user => { %>
             <td><%= user.name %> </td>
-            <% } %>
+            <% }); %>
 
 
 
         <td><%= user.option %></td>
         <td><%= user.response %></td>
       </tr>
-<% } %>
+<% }); %>
 
     </tbody>
   </table> </body>
