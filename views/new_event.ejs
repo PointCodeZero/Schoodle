@@ -1,27 +1,21 @@
-<!-- form with title, location, description, options(date, just one for now)
-  button create event
-
-
-  /events/new -->
-
-    <% include partials/header %>
-
-    <main class = "container">
-      <div class="sub-container">
-        <h2 class="header">
-          Fill in your event info
-        </h2>
-        <form id= "form02" action="/events" method="POST">
-          <textarea id="input_title" name="title" placeholder="Name your event!" required></textarea>
-          <textarea id="input_description" name="description" placeholder="Description" required></textarea>
-          <textarea id="input_location" name="location" placeholder="Location"required></textarea>
-          <textarea id="input_datetime1" name="option" placeholder="Date and time option"required></textarea>
-<!--           <textarea id="input_datetime2" name="option-2" placeholder="Date and time option 2"></textarea>
-          <textarea id="input_datetime3" name="option-3" placeholder="Date and time option 3"></textarea> -->
-          <input id="create-event-button" type="submit" value="Create Event!">
-        </form>
-      </div>
-    </main>
+<% include partials/header %>
+<main class = "container">
+  <div class="sub-container">
+    <h2 class="header">
+      Fill in your event info
+    </h2>
+    <form id= "form02" action="/events" method="POST">
+      <textarea id="input_title" name="title" placeholder="Name your event!" required></textarea>
+      <textarea id="input_description" name="description" placeholder="Description" required></textarea>
+      <textarea id="input_location" name="location" placeholder="Location"required></textarea>
+      <textarea id="input_datetime1" name="option" placeholder="Date and time option"required></textarea>
+      <!--           <textarea id="input_datetime2" name="option-2" placeholder="Date and time option 2"></textarea>
+        <textarea id="input_datetime3" name="option-3" placeholder="Date and time option 3"></textarea> -->
+        <input id="create-event-button" type="submit" value="Create Event!">
+      </form>
+    </div>
+  </main>
   <% include partials/footer %>
-
-
+  
+  
+  
