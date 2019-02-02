@@ -1,20 +1,16 @@
 
-    <% include partials/header %>  
+    <% include partials/header %>
     <main class = "container">
         <div class="sub-container">
             <h1> You are invited to an event on <%=option%>! </h1>
             <p>Come to LOCATION </p>
             <form id= "form04" action="/events/<%=shortURL%>/main" method="POST">
-                <input type="submit" name="YES" value="Yes, I wanna go">
-                <!-- <input type="button" name="NO" value="No, I don't wanna go"> -->
-                <!-- Lighthouse <br> -->
-                <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
-                    <input type="radio" name="z" value="Option 3"> King -->
-                </form>
-                <form id= "form05" action="/" method="GET" onclick="alert('Thank you, bye!');">
-                    <input type="submit" name="NO" value="No, I don't wanna go">
-                </form>
+              <h2><%=option%></h2>
+              <button type="submit" name="rsvp" value="<%= option %>">Yes</button>
+              <button type="submit" name="rsvp" value="no">No</button>
+            </form>
+
             </div>
         </main>
     <% include partials/footer %>
-    
+
