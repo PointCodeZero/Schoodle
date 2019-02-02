@@ -37,7 +37,7 @@ module.exports = (knex) => {
               option: req.body.option,
               events_id: id[0]
             })
-            .then((results) => {
+            .then(() => {
               res.redirect(`/events/${shortUrl}`);
             })
         })
@@ -86,13 +86,20 @@ module.exports = (knex) => {
   router.post('/:id/user_verify', (req, res) => {
     let id = req.params.id;
     knex('users')
+      .returning('id')
       .insert({
         name: req.body.name,
         email: req.body.email
       })
-      .then(() => {
-        res.redirect(`/events/${id}/availability`);
-      })
+      // .then((id) => {
+      //   knex('availability')
+      //     .insert({
+      //       users_id: id[0]
+      //     })
+          .then(() => {
+            res.redirect(`/events/${id}/availability`);
+          })
+      // })
       .catch((err) => {
         console.log(err);
       });
@@ -126,13 +133,32 @@ module.exports = (knex) => {
   //AVAILABILITY POST ROUTE
   router.post('/:id/main', (req, res) => {
     let id = req.params.id;
-    knex('availability')
-      .insert({ response: req.body.rsvp })
-      .then(() => {
-        res.redirect(`/events/${id}/main`);
-      })
-      .catch((err) =>{
-        console.log(err);
+    knex('events')
+      .select()
+      .where({shortURL : id})
+      .then((results) => {
+        const result = results[0];
+        knex('users')
+          .select()
+          .where({ id: results[0].users_id})
+          .then((users) => {
+            const user = users[0];
+            knex('time_slots')
+              .select()
+              .where({ events_id: result.id})
+              .then((time_id) => {
+                knex('availability')
+                  .insert({
+                    response: req.body.rsvp,
+                    time_slots_id: time_id[0].id,
+                    users_id: user.id
+                  })
+                  .then(() => {
+                    res.redirect(`/events/${id}/main`);
+                  })
+              })
+              })
+
       })
   });
 
