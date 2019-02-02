@@ -49,7 +49,9 @@ module.exports = (knex) => {
         .then((id) => {
           knex("time_slots")
             .insert({
-              option: req.body.option,
+              option1: req.body.option1,
+              option2: req.body.option2,
+              option3: req.body.option3,
               events_id: id[0]
             })
             .then(() => {
@@ -128,7 +130,9 @@ module.exports = (knex) => {
           .then((results) => {
             const timeSlots = results[0];
             var templateVar = {
-              option: timeSlots.option,
+              option1: timeSlots.option1,
+              option2: timeSlots.option2,
+              option3: timeSlots.option3,
               shortURL: row.shortURL
             };
             res.render('availability', templateVar);
