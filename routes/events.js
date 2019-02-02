@@ -12,7 +12,22 @@ function generateRandomURL() {
    return shortURL;
 }
 
+function getAllItemsInTable(knex, table) {
+    return knex(table).select()
+        .then(function(query) {
+            var result = JSON.stringify(query);
+            return result;
+        });
+  }
+
 module.exports = (knex) => {
+
+  // getAllItemsInTable(knex, 'availability').then((result) => console.log(result));
+
+   // getAllItemsInTable(knex, 'users').then((result) => { console.log(result) });
+
+   // const usersTable = getAllItemsInTable(knex, 'users').then((result) => { return result });
+   // console.log(usersTable);
 
   //NEW ROUTE
   router.get('/new', (req, res) => {
@@ -161,32 +176,16 @@ module.exports = (knex) => {
   //MAIN ROUTE
   router.get('/:id/main', (req, res) => {
     let shortUrlId = req.params.id;
-    knex('events')
-      .select()
-      .where({shortURL: shortUrlId})
-      .then((rows) => {
-        const row = rows[0];
+    knex.select('*').from('users')
+      .join('availability', {
+        'users.id': 'availability.users_id'
+      })
+      .then((results) => {
         var templateVar = {
-          title: row.title,
-          description: row.description,
-          location: row.location,
-          shortURL: row.shortURL
-        };
-        knex('users')
-          .select()
-          .where({id: row.users_id})
-          .then((user_rows) => {
-            const user_row = user_rows[0];
-            templateVar.name = user_row.name;
-          })
-            knex('time_slots')
-              .select()
-              .where({events_id : row.id})
-              .then((options) => {
-                const time_slot = options[0];
-                templateVar.option = time_slot.option;
-                res.render('main', templateVar);
-              });
+          users: results,
+          shortURL: shortUrlId
+        }
+        res.render('main', templateVar);
       })
       .catch((err) => {
         console.log(err);
