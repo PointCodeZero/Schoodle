@@ -215,7 +215,9 @@ module.exports = (knex) => {
           .then((responses) => {
             const response = responses[0];
             var templateVar = {
-              option : response.response,
+              option1 : row.option1,
+              option2: row.option2,
+              option3: row.option3,
               shortURL : result.shortURL
             };
             res.render('edit', templateVar)
@@ -235,10 +237,10 @@ module.exports = (knex) => {
       .where({ shortURL : id })
       .then((rows) => {
         const event = rows[0];
-        knex('time_slots')
+        knex('availability')
           .select()
-          .where({ events_id : event.id })
-          .update({ option : req.body.option })
+          .where({ users_id : event.users_id })
+          .update({ response : req.body.rsvp })
           .then(() => {
             res.redirect(`/events/${id}/main`);
           })
