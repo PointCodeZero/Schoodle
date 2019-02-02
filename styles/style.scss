@@ -133,17 +133,33 @@ body {
   border: none;
   background: #f1f1f1;
 }
-
+#form04 .optionH3 {
+  display: inline-block;
+  width: 50%;
+}
 // Yes i wana go button
-#form04 input {
+#form04 .option{
   background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  width: 50%;
+  height: auto;
+  opacity: 0.9;
+  float:right;
+}
+
+#form04 .option2{
+  background-color: rgb(206, 44, 44);
   color: white;
   padding: 14px 20px;
   border: none;
   width: 100%;
   height: auto;
   opacity: 0.9;
+  margin-top: 1em;
 }
+
 
 // No i dont wana go button
 #form05 input {
