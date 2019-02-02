@@ -25,7 +25,4 @@ $(() => {
   $("#input_datetime2").focus(function(){
     $("#input_datetime3").slideDown("slow");
   });
-
-
-
 });
