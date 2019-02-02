@@ -1,26 +1,18 @@
-<!--Visiting users will get to see even title, description and location
-    they will have an option to login with their Name and Email, 
-    and once they do they will be presented with a date and time option
-
-    previous page: events/:id
-    path for this page: events/:id/user_verify
-    leads to: events/:id/availability -->
-
-
-        <% include partials/header %>
-        <main class = "container">
-            <div class="sub-container">
-                <h1>You are invited to an event!</h1>
-                <!-- <p>Title</p>
-                <p>Description</p>
-                <p>Location</p> -->
-                <h3>In order to proceed with your response to the invitation, you first need to enter your info:</h3>
-                <form id = "form03" action="/events/<%=shortURL%>/user_verify" method="POST">
-                    <input class="input" id="user_name" type="text" name="name" placeholder="Name" required>
-                    <input class="input" id="user_email" type="email" name="email" placeholder="Email" required >
-                    <input id="proceed" type="submit" value="Proceed!">
-                </form>
-            </div>
-        </main>
+<% include partials/header %>
+<main class = "container">
+    <div class="sub-container">
+        <h1>You are invited to an event!</h1>
+        <!-- <p>Title</p>
+            <p>Description</p>
+            <p>Location</p> -->
+            <h3>In order to proceed with your response to the invitation, you first need to enter your info:</h3>
+            <form id = "form03" action="/events/<%=shortURL%>/user_verify" method="POST">
+                <input class="input" id="user_name" type="text" name="name" placeholder="Name" required>
+                <input class="input" id="user_email" type="email" name="email" placeholder="Email" required >
+                <input id="proceed" type="submit" value="Proceed!">
+            </form>
+        </div>
+    </main>
     <% include partials/footer %>
- 
+    
+    
