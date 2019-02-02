@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <title>Schoodle - Share the Link!</title>
-    <% include partials/header %>
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    
-</head>
-<% include partials/slideshow %>
-<body>
+
+    <% include partials/header %>  
     <main class = "container">
         <div class="sub-container">
             <h1> You are invited to an event on <%=option%>! </h1>
@@ -24,13 +11,10 @@
                 <!--  <input type="radio" name="y" value="Option 2"> Labs <br>
                     <input type="radio" name="z" value="Option 3"> King -->
                 </form>
-                
                 <form id= "form05" action="/" method="GET" onclick="alert('Thank you, bye!');">
                     <input type="submit" name="NO" value="No, I don't wanna go">
                 </form>
             </div>
         </main>
-    </body>
     <% include partials/footer %>
-    </html>
     
