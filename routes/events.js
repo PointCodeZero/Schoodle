@@ -12,14 +12,6 @@ function generateRandomURL() {
    return shortURL;
 }
 
-function getAllItemsInTable(knex, table) {
-    return knex(table).select()
-        .then(function(query) {
-            var result = JSON.stringify(query);
-            return result;
-        });
-  }
-
 module.exports = (knex) => {
 
   //NEW ROUTE
@@ -37,7 +29,7 @@ module.exports = (knex) => {
           description: req.body.description,
           location: req.body.location,
           shortURL: shortUrl,
-          users_id: 1
+          users_id: 1    //====>>>Change here!!!
         })
         .then((id) => {
           knex("time_slots")
@@ -157,7 +149,7 @@ module.exports = (knex) => {
                   .insert({
                     response: req.body.rsvp,
                     time_slots_id: time_id[0].id,
-                    users_id: 7
+                    users_id: 7   //=====>>>> Change it here
                   })
                   .then(() => {
                     res.redirect(`/events/${id}/main`);
@@ -182,7 +174,6 @@ module.exports = (knex) => {
           users: results,
           shortURL: shortUrlId
         }
-        console.log()
         res.render('main', templateVar);
       })
       .catch((err) => {
@@ -226,31 +217,11 @@ module.exports = (knex) => {
   //UPDATE ROUTE
   router.put('/:id/main', (req, res) => {
     let id = req.params.id;
-
-      // knex.select('*').from('users')
-      // .join('availability', {
-      //   'users.id': 'availability.users_id'
-      // })
-      // .then((results) => {
-      //   console.log(results)
-      //   knex('availability')
-      //   .update({ response : req.body.rsvp2 })
-      //     .then(() => {
-      //       res.redirect(`/events/${id}/main`);
-      //     })
-
-      // })
-
-
     knex('users')
       .select()
       .then((rows) => {
-        console.log(rows)
-        const user = rows[0];
-        // console.log(user)
         knex('availability')
-          // .select('users_id')
-          .where({ users_id : 8 })
+          .where({ users_id : 7}) //=====>>> Change it here
           .update({ response : req.body.rsvp })
           .then(() => {
             res.redirect(`/events/${id}/main`);
