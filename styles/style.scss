@@ -20,11 +20,11 @@ body {
 
 // Main container / purple frame
 .container {
-  opacity: 0.9;
+  // opacity: 0.9;
   z-index: 1;
   width: 70%;
   align-self: center;
-  background-color: rgb(138, 27, 64);
+  // background-color: rgb(138, 27, 64);
   margin-left: auto;
   margin-right: auto;
   padding-top: 1em;
@@ -179,14 +179,17 @@ body {
   border-radius: 5px;
 }
 
-// Footer 
-#footer {
+// Footer
+.footer {
   z-index: 1;
-  width: 30%;
-  margin-left: auto;
-  margin-right: auto;
-  text-size-adjust: auto;
-  color: black;
+  width: 100%;
+  background-color: #343a40;
+  text-position: center;
+  color: white;
+  font-wheigh: bold;
+  margin-top: 40px;
+  margin-bottom: 0;
+  padding: 20px;
 }
 
 // Background slideshow functionality
@@ -215,22 +218,22 @@ body {
   animation: imageAnimation 25s linear infinite;
 }
 .slideshow li:nth-child(1) {
-  background-image: url(https://nyc3.digitaloceanspaces.com/servercarlosesverde/elevenews/wp-content/uploads/2018/12/12222219/Party.jpg)
+  background-image: url(../images/wedding.jpeg)
 }
 .slideshow li:nth-child(2) {
-  background-image: url(https://www.todaysparent.com/wp-content/uploads/2017/09/art_themed_birthday_party-1024x576-1506362774.jpg);
+  background-image: url(../images/birthday_party.jpeg);
   animation-delay: 5s;
 }
 .slideshow li:nth-child(3) {
-  background-image: url(https://victoriapark.com.au/app/uploads/Victoria-Park-Wedding-Venue-Brisbane-05.jpg);
+  background-image: url(../images/dinner.jpeg);
   animation-delay: 10s;
 }
 .slideshow li:nth-child(4) {
-  background-image: url(https://d3d6le3o0d67yz.cloudfront.net/wp-content/uploads/2018/03/X-5501-1.jpg);
+  background-image: url(../images/hiking.jpeg);
   animation-delay: 15s;
 }
 .slideshow li:nth-child(5) {
-  background-image: url(https://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/29007-istock-642987348_0.jpg?itok=zjenzqTF&resize=1100x1100);
+  background-image: url(../images/pool_party.jpeg);
   animation-delay: 20s;
 }
 @keyframes imageAnimation {
