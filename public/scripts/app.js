@@ -1,8 +1,8 @@
 
-const JJ= jQuery.noConflict(); 
+const JJ= jQuery.noConflict();
 JJ('.back').click(function (){
     window.history.back();
-}); 
+});
 
 jQuery(document).ready(function(){
 
@@ -34,5 +34,5 @@ jQuery(document).ready(function(){
     JJ("#input_datetime3").slideDown("slow");
   });
 
-})(jQuery);
+});
 
