@@ -10,18 +10,7 @@ body {
 
 * {box-sizing: border-box}
 
-// Navigation bar parameters
-nav {
 
-}
-
-body {
-  background-color: rgb(148, 107, 132);
-}
-
-.navbar-brand a {
-    color: #fff;
-  }
 // Main container / purple frame
 .container {
   z-index: 1;
@@ -39,7 +28,8 @@ body {
   opacity: 1 !important;
   z-index: 1;
   border-radius: 5px;
-  background: white;
+  background: #343a40;
+  color: #fff;
   margin: 2em;
 }
 
@@ -78,11 +68,16 @@ body {
   padding: 4%;
 }
 
+#form02 {
+  padding: 2.5% 4%;
+}
+
 // Removing pesky border around input forms
 #form02 .input:focus {
   background-color: #ddd;
   outline: none;
 }
+
 #proceed {
   background-color: #4CAF50;
   color: white;
@@ -93,7 +88,7 @@ body {
   opacity: 0.9;
 }
 // New event text fields and button
-#form02 textarea {
+#form02 input {
   width: 100%;
   padding: 15px;
   margin: 5px 0;
@@ -101,18 +96,16 @@ body {
   border: none;
   background: #f1f1f1;
 }
-#form02 textarea:focus {
+
+#form02 input:focus {
   background-color: #ddd;
   outline: none;
 }
+
 #create-event-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  width: 100%;
-  height: auto;
-  opacity: 0.9;
+  margin: 2%;
+  padding: 2% 0;
+  width: 95%;
 }
 
 //User login and email fields and button
