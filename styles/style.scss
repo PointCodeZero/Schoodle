@@ -28,7 +28,7 @@ body {
   opacity: 0.95;
   z-index: 1;
   border-radius: 5px;
-  background: #343a40;
+  background-color: #343a40;
   color: #fff;
   margin: 2em;
 }
@@ -121,6 +121,11 @@ body {
   border: none;
   background: #f1f1f1;
 }
+
+#form04 {
+  padding: 2.5% 4%;
+}
+
 #form04 .optionH3 {
   display: inline-block;
   width: 50%;
