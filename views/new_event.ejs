@@ -2,18 +2,18 @@
 <main class = "container">
   <div class="sub-container">
     <h2 class="header">
-      Fill in your event info
+      Please fill in your event info
     </h2>
-    <form id= "form02" action="/events" method="POST">
-      <textarea id="input_title" name="title" placeholder="Name your event!" required></textarea>
-      <textarea id="input_description" name="description" placeholder="Description" required></textarea>
-      <textarea id="input_location" name="location" placeholder="Location"required></textarea>
-      
-      <textarea id="input_datetime1" name="option1" placeholder="Date and time option 1" required></textarea>
-      <textarea id="input_datetime2" name="option2" placeholder="Date and time option 2"></textarea>
-      <textarea id="input_datetime3" name="option3" placeholder="Date and time option 3"></textarea>
-      
-      <input id="create-event-button" type="submit" value="Create Event!">
+    <form id="form02" action="/events" method="POST">
+      <input name="title" placeholder="Name your event..." required>
+      <input name="description" placeholder="Description..." required>
+      <input name="location" placeholder="Address..."required>
+
+      <input id="input_datetime1" name="option1" placeholder="e.g: 2019-02-10" required>
+      <input id="input_datetime2" name="option2" placeholder="e.g: 2019-02-11" required>
+      <input id="input_datetime3" name="option3" placeholder="e.g: 2019-02-12" required>
+
+      <button id="create-event-button" class="btn btn-lg btn-secondary d-block text-center" type="submit">Create Event!</button>
     </form>
   </div>
 </main>
