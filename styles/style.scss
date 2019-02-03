@@ -5,6 +5,7 @@ $primary-color: rgb(66, 66, 66);
 body {
   font: 100% $font-stack;
   color: $primary-color;
+  font-family: 'KoHo', sans-serif;
 }
 
 * {box-sizing: border-box}
@@ -18,15 +19,17 @@ body {
   background-color: rgb(148, 107, 132);
 }
 
+.navbar-brand a {
+    color: #fff;
+  }
 // Main container / purple frame
 .container {
-  // opacity: 0.9;
   z-index: 1;
-  width: 70%;
+  width: 80%;
   align-self: center;
-  // background-color: rgb(138, 27, 64);
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0.5%;
   padding-top: 1em;
   padding-bottom: 1%;
 }
@@ -60,6 +63,13 @@ body {
   padding-top: .4em;
   padding-bottom: .2em;
   display: block;
+}
+
+.jumbotron {
+  background-color: #343a40;
+  color: #fff;
+  opacity: 0.95;
+  margin-top: 10%;
 }
 
 // Centering header
@@ -186,10 +196,13 @@ body {
   background-color: #343a40;
   text-position: center;
   color: white;
-  font-wheigh: bold;
   margin-top: 40px;
   margin-bottom: 0;
-  padding: 20px;
+  padding: 0.5%;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0
 }
 
 // Background slideshow functionality
