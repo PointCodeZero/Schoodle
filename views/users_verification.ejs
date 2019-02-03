@@ -1,18 +1,22 @@
 <% include partials/header %>
+
 <main class = "container">
     <div class="sub-container">
+      <div class="users_header">
         <h1>You are invited to <%= title %>!</h1>
-        <!-- <p>Title</p>
-            <p>Description</p>
-            <p>Location</p> -->
-            <h3>In order to proceed with your response to the invitation, you first need to enter your info:</h3>
-            <form id = "form03" action="/events/<%=shortURL%>/user_verify" method="POST">
-                <input class="input" id="user_name" type="text" name="name" placeholder="Name" required>
-                <input class="input" id="user_email" type="email" name="email" placeholder="Email" required >
-                <input id="proceed" type="submit" value="Proceed!">
-            </form>
+        <h3>How cool is that?</h3>
+        <hr>
+        <h4 class="text-center">Please let us know your information in order to proceed</h4>
+      </div>
+
+          <form id ="form03" action="/events/<%=shortURL%>/user_verify" method="POST">
+              <input class="input" id="user_name" type="text" name="name" placeholder="Name" required>
+              <input class="input" id="user_email" type="email" name="email" placeholder="Email" required >
+              <button id="proceed" class="btn btn-lg btn-secondary d-block text-center" type="submit">Submit</button>
+          </form>
         </div>
     </main>
-    <% include partials/footer %>
+
+<% include partials/footer %>
 
 

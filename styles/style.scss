@@ -25,7 +25,7 @@ body {
 
 // White box inside purple
 .sub-container {
-  opacity: 1 !important;
+  opacity: 0.95;
   z-index: 1;
   border-radius: 5px;
   background: #343a40;
@@ -79,13 +79,9 @@ body {
 }
 
 #proceed {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  width: 100%;
-  height: auto;
-  opacity: 0.9;
+  margin: 2%;
+  padding: 2% 0;
+  width: 95%;
 }
 // New event text fields and button
 #form02 input {
@@ -108,7 +104,15 @@ body {
   width: 95%;
 }
 
+.users_header {
+  padding: 5% 0 1.5% 0;
+}
+
 //User login and email fields and button
+#form03 {
+  padding: 2.5% 4%;
+}
+
 #form03 .input {
   width: 100%;
   padding: 15px;
