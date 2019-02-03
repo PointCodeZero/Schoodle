@@ -1,32 +1,38 @@
-// $(() => {
-//   // $.ajax({
+
+const JJ= jQuery.noConflict(); 
+JJ('.back').click(function (){
+    window.history.back();
+}); 
+
+jQuery(document).ready(function(){
+
+    console.log('aaaaaaaaa')
+//   // JJ.ajax({
 //   //   method: "GET",
 //   //   url: "/api/users"
 //   // }).done((users) => {
 //   //   for(user of users) {
-//   //     $("<div>").text(user.name).appendTo($("body"));
+//   //     JJ("<div>").text(user.name).appendTo(JJ("body"));
 //   //   }
 //   // });
 
 
-//   //Slide down on date-time options
-//   $("#form02 #input_datetime2").hide();
-//   $("#form02 #input_datetime3").hide();
+  //Slide down on date-time options
+  JJ("#form02 #input_datetime2").hide();
+  JJ("#form02 #input_datetime3").hide();
 
-//   $("#input_datetime1").click(function(){
-//     $("#input_datetime2").slideDown("slow");
-//   });
-//   $("#input_datetime1").focus(function(){
-//     $("#input_datetime2").slideDown("slow");
-//   });
-//   $("#input_datetime2").click(function(){
-//     $("#input_datetime3").slideDown("slow");
-//   });
-//   $("#input_datetime2").focus(function(){
-//     $("#input_datetime3").slideDown("slow");
-//   });
+  JJ("#input_datetime1").click(function(){
+    JJ("#input_datetime2").slideDown("slow");
+  });
+  JJ("#input_datetime1").focus(function(){
+    JJ("#input_datetime2").slideDown("slow");
+  });
+  JJ("#input_datetime2").click(function(){
+    JJ("#input_datetime3").slideDown("slow");
+  });
+  JJ("#input_datetime2").focus(function(){
+    JJ("#input_datetime3").slideDown("slow");
+  });
 
+})(jQuery);
 
-
-
-// });
