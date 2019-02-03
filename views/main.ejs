@@ -18,10 +18,10 @@
       time_slots.response -->
 
 
-
+          <% var i = 1 %>
           <% users.forEach((user) => { %>
             <tr>
-              <th scope="row">1</th>
+              <th scope="row"> <%= i++ %> </th>
                 <td><%= user.name %> </td>
                 <td><%= user.response %></td>
                 <td><a class="btn btn-warning" href="/events/<%= shortURL %>/edit">Edit</a></td>
