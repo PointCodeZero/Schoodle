@@ -6,18 +6,7 @@ JJ('.back').click(function (){
 
 jQuery(document).ready(function(){
 
-    console.log('aaaaaaaaa')
-//   // JJ.ajax({
-//   //   method: "GET",
-//   //   url: "/api/users"
-//   // }).done((users) => {
-//   //   for(user of users) {
-//   //     JJ("<div>").text(user.name).appendTo(JJ("body"));
-//   //   }
-//   // });
-
-
-  //Slide down on date-time options
+  //Slide down on date-time options in new-event
   JJ("#form02 #input_datetime2").hide();
   JJ("#form02 #input_datetime3").hide();
 
@@ -34,5 +23,17 @@ jQuery(document).ready(function(){
     JJ("#input_datetime3").slideDown("slow");
   });
 
+  // Edit page Update buttons to appear and dissappear on focus of textarea
+  JJ("#edit1, #edit2, #edit3").hide();
+
+  JJ("#tr1").on("click", function(){
+    JJ("#edit1").show();
+  });
+  JJ("#tr2").on("click", function(){
+    JJ("#edit2").show();
+  });
+  JJ("#tr3").on("click", function(){
+    JJ("#edit3").show();
+  });
 });
 

@@ -179,6 +179,7 @@ body {
   padding-bottom: 2%;
 }
 
+// Text area
 .form06 input {
   display: inline-block;
   width: 40%;
@@ -186,18 +187,21 @@ body {
   text-align: center;
 }
 
-// Submit
-.form06 button{
-  background-color: rgb(41, 44, 192);
-  color: white;
-  border: none;
-  width: 40%;
-  opacity: 0.9;
-  float: right;
-  display: inline-block;
-  padding: .15em;
-  margin-right: 5%;
-  border-radius: 5px;
+#cant-come {
+  margin-left: 12.5%;
+  background: #dc3545;
+}
+
+#th1 {
+  padding: 4%;
+}
+
+#th2 {
+  padding: 4%;
+}
+
+#th3 {
+  padding: 4%;
 }
 
 // Footer
