@@ -76,7 +76,8 @@ module.exports = (knex) => {
       .then((results)=> {
         const result = results[0];
         var templateVar = {
-          shortURL : result.shortURL
+          shortURL : result.shortURL,
+          title: result.title
         };
         res.render('users_verification', templateVar);
       })
@@ -118,7 +119,10 @@ module.exports = (knex) => {
               option1: timeSlots.option1,
               option2: timeSlots.option2,
               option3: timeSlots.option3,
-              shortURL: row.shortURL
+              shortURL: row.shortURL,
+              title: row.title,
+              location: row.location
+
             };
             res.render('availability', templateVar);
           })
@@ -165,17 +169,25 @@ module.exports = (knex) => {
   //MAIN ROUTE
   router.get('/:id/main', (req, res) => {
     let shortUrlId = req.params.id;
-    knex.select('*').from('users')
+      knex.select('*').from('users')
       .join('availability', {
         'users.id': 'availability.users_id'
       })
       .then((results) => {
-        var templateVar = {
-          users: results,
-          shortURL: shortUrlId
-        }
-        res.render('main', templateVar);
-      })
+        knex("events")
+          .select()
+          .where({shortURL: shortUrlId})
+          .then((events) => {
+            var templateVar = {
+            users: results,
+            shortURL: shortUrlId,
+            title: events[0].title,
+            description: events[0].description,
+            location: events[0].location
+          }
+            res.render('main', templateVar);
+        })
+        })
       .catch((err) => {
         console.log(err);
       })

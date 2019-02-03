@@ -10,18 +10,7 @@ body {
 
 * {box-sizing: border-box}
 
-// Navigation bar parameters
-nav {
 
-}
-
-body {
-  background-color: rgb(148, 107, 132);
-}
-
-.navbar-brand a {
-    color: #fff;
-  }
 // Main container / purple frame
 .container {
   z-index: 1;
@@ -36,10 +25,11 @@ body {
 
 // White box inside purple
 .sub-container {
-  opacity: 1 !important;
+  opacity: 0.95;
   z-index: 1;
   border-radius: 5px;
-  background: white;
+  background-color: #343a40;
+  color: #fff;
   margin: 2em;
 }
 
@@ -78,22 +68,23 @@ body {
   padding: 4%;
 }
 
+#form02 {
+  padding: 2.5% 4%;
+}
+
 // Removing pesky border around input forms
 #form02 .input:focus {
   background-color: #ddd;
   outline: none;
 }
+
 #proceed {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  width: 100%;
-  height: auto;
-  opacity: 0.9;
+  margin: 2%;
+  padding: 2% 0;
+  width: 95%;
 }
 // New event text fields and button
-#form02 textarea {
+#form02 input {
   width: 100%;
   padding: 15px;
   margin: 5px 0;
@@ -101,21 +92,27 @@ body {
   border: none;
   background: #f1f1f1;
 }
-#form02 textarea:focus {
+
+#form02 input:focus {
   background-color: #ddd;
   outline: none;
 }
+
 #create-event-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  width: 100%;
-  height: auto;
-  opacity: 0.9;
+  margin: 2%;
+  padding: 2% 0;
+  width: 95%;
+}
+
+.users_header {
+  padding: 5% 0 1.5% 0;
 }
 
 //User login and email fields and button
+#form03 {
+  padding: 2.5% 4%;
+}
+
 #form03 .input {
   width: 100%;
   padding: 15px;
@@ -124,6 +121,11 @@ body {
   border: none;
   background: #f1f1f1;
 }
+
+#form04 {
+  padding: 2.5% 4%;
+}
+
 #form04 .optionH3 {
   display: inline-block;
   width: 50%;
@@ -152,7 +154,7 @@ body {
 }
 
 
-// No i dont wana go button
+// No i dont wanna go button
 #form05 input {
   background-color: rgb(219, 41, 41);
   color: white;
@@ -161,6 +163,15 @@ body {
   width: 100%;
   height: auto;
   opacity: 0.9;
+}
+
+//Main Page
+#jumbo-header {
+  margin-top: 5%;
+}
+
+#main-table {
+  margin-bottom: 10%;
 }
 
 //EDIT PAGE FORMS
@@ -200,7 +211,7 @@ body {
   background-color: #343a40;
   text-position: center;
   color: white;
-  margin-top: 40px;
+  margin-top: 500px;
   margin-bottom: 0;
   padding: 0.5%;
   position: fixed;

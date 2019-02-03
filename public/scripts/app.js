@@ -1,8 +1,8 @@
 
-const JJ= jQuery.noConflict(); 
+const JJ= jQuery.noConflict();
 JJ('.back').click(function (){
     window.history.back();
-}); 
+});
 
 jQuery(document).ready(function(){
 
@@ -35,6 +35,5 @@ jQuery(document).ready(function(){
   JJ("#tr3").on("click", function(){
     JJ("#edit3").show();
   });
-
 });
 
