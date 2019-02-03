@@ -2,7 +2,7 @@
 
       <div class="sub-container">
         <h2 class="header">
-          Fill in your event info
+          So you want to change your arrival time?
         </h2>
 
         <form id="form06" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
@@ -26,6 +26,13 @@
           </div>
         </form>
 
+         <form id="form06" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
+          <input id="edit_datetime1" class="form-control" name="rsvp" value="Can't come" > </input>
+          <div class="form-group">
+              <button id="edit1" type="submit">Submit!</button>
+          </div>
+        </form>
+
       </div>
-      
+
   <% include partials/footer %>

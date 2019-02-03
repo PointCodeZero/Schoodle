@@ -76,7 +76,8 @@ module.exports = (knex) => {
       .then((results)=> {
         const result = results[0];
         var templateVar = {
-          shortURL : result.shortURL
+          shortURL : result.shortURL,
+          title: result.title
         };
         res.render('users_verification', templateVar);
       })
@@ -118,7 +119,10 @@ module.exports = (knex) => {
               option1: timeSlots.option1,
               option2: timeSlots.option2,
               option3: timeSlots.option3,
-              shortURL: row.shortURL
+              shortURL: row.shortURL,
+              title: row.title,
+              location: row.location
+
             };
             res.render('availability', templateVar);
           })
