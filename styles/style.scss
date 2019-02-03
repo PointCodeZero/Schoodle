@@ -154,7 +154,7 @@ body {
 }
 
 
-// No i dont wana go button
+// No i dont wanna go button
 #form05 input {
   background-color: rgb(219, 41, 41);
   color: white;
@@ -163,6 +163,15 @@ body {
   width: 100%;
   height: auto;
   opacity: 0.9;
+}
+
+//Main Page
+#jumbo-header {
+  margin-top: 5%;
+}
+
+#main-table {
+  margin-bottom: 10%;
 }
 
 //EDIT PAGE FORMS
@@ -198,7 +207,7 @@ body {
   background-color: #343a40;
   text-position: center;
   color: white;
-  margin-top: 40px;
+  margin-top: 500px;
   margin-bottom: 0;
   padding: 0.5%;
   position: fixed;
