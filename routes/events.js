@@ -142,7 +142,7 @@ module.exports = (knex) => {
         const result = results[0];
         knex('users')
           .select()
-          .where({ id: results[0].users_id})
+          .where({ id: result.users_id})
           .then((users) => {
             const user = users[0];
             knex('time_slots')

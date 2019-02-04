@@ -51,7 +51,7 @@ body {
 .sub-container h1, h2, h3, a, p {
   text-align: center;
   padding-top: .4em;
-  padding-bottom: .2em;
+  padding-bottom: 0.2em;
   display: block;
 }
 
@@ -187,9 +187,16 @@ body {
   text-align: center;
 }
 
+#form07 {
+  padding: 2.5% 4%;
+}
+
 #cant-come {
   margin-left: 12.5%;
   background: #dc3545;
+  margin-bottom: 2.4%;
+  border: none;
+  color: #fff;
 }
 
 #th1 {
