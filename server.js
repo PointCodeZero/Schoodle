@@ -18,15 +18,18 @@ const methodOverride = require('method-override');
 // const usersRoutes = require("./routes/users");
 const eventsRoutes = require("./routes/events");
 
+// Sass auto coverter into .css
 app.use(sass({
     src: path.join(__dirname),
     dest: path.join(__dirname, 'public'),
     debug: true,
     outputStyle: 'compressed',
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 app.use(knexLogger(knex));
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));

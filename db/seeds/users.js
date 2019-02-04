@@ -1,5 +1,5 @@
 exports.seed = function(knex, Promise) {
-  //seeding users table
+  // Seedi for users table
   return Promise.all([
     knex.schema.raw('ALTER SEQUENCE users_id_seq RESTART WITH 1'),
     knex('users').del()
@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
         ]);
     }),
 
-    //seed for events table
+    // Seed for events table
 
     // knex.schema.raw('ALTER SEQUENCE events_id_seq RESTART WITH 1'),
     // knex('events').del()
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
     //   ]);
     // }),
 
-    //seed for time_slots table
+    // Seed for time_slots table
 
     // knex.schema.raw('ALTER SEQUENCE time_slots_id_seq RESTART WITH 1'),
     // knex('time_slots').del()
@@ -41,7 +41,7 @@ exports.seed = function(knex, Promise) {
     //   ]);
     // }),
 
-    //seed for availability table 
+    // Seed for availability table 
 
     // 
     // knex('availability').del()

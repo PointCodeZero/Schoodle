@@ -1,4 +1,5 @@
-
+// There was a bug with jquery code conflicting with some of the other libraries, setting
+// the $ to a different variable name seems to solve that problem
 const JJ= jQuery.noConflict();
 JJ('.back').click(function (){
     window.history.back();
