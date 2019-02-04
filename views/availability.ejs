@@ -1,47 +1,46 @@
-  <% include partials/header %>
-    <main class = "container">
-      <div class="sub-container">
-        <div class="users_header">
-          <h1> <%= title%> </h1>
-          <hr>
-          <h3>It's all happening at <%= location %> </h2>
-          <hr>
-          <h4 class="text-center">Let us know when you can make it:</h4>
-        </div>
-        <form id="form04" action="/events/<%=shortURL%>/main" method="POST">
+<% include partials/header %>
 
-          <table class="table table-borderless table-dark">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Date</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="align-middle">1</th>
-                <td class="align-middle"><%=option1%></td>
-                <td><button class="btn btn-warning w-100" type="submit" name="rsvp" value="<%= option1 %>">Yes</button></td>
-              </tr>
-              <tr>
-                <th scope="row" class="align-middle">2</th>
-                <td class="align-middle"><%=option2%></td>
-                <td><button class="btn btn-warning w-100" type="submit" name="rsvp" value="<%= option2 %>">Yes</button></td>
-              </tr>
-              <tr>
-                <th scope="row" class="align-middle">3</th>
-                <td class="align-middle"><%=option3%></td>
-                <td colspan="2"><button class="btn btn-warning w-100" type="submit" name="rsvp" value="<%= option3 %>">Yes</button></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <button class="btn btn-danger w-100" type="submit" name="rsvp" value="Can't come">Can't come! Sorry...</button>
-
-        </form>
+  <main class="container">
+    <div class="sub-container">
+      <div class="header">
+        <h1> <%= title%> </h1>
+        <hr>
+        <h3>It's all happening at <%= location %> </h2>
+        <hr>
+        <h4 class="text-center">Let us know when you can make it:</h4>
       </div>
-    </main>
-  <% include partials/footer %>
+      <form id="form04" class="forms" action="/events/<%=shortURL%>/main" method="POST">
+        <table class="table table-borderless table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="align-middle">1</th>
+              <td class="align-middle"><%=option1%></td>
+              <td><button class="btn btn-warning w-100" type="submit" name="rsvp" value="<%= option1 %>">Yes</button></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">2</th>
+              <td class="align-middle"><%=option2%></td>
+              <td><button class="btn btn-warning w-100" type="submit" name="rsvp" value="<%= option2 %>">Yes</button></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">3</th>
+              <td class="align-middle"><%=option3%></td>
+              <td colspan="2"><button class="btn btn-warning w-100" type="submit" name="rsvp" value="<%= option3 %>">Yes</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-danger w-100" type="submit" name="rsvp" value="Can't come">Can't come! Sorry...</button>
+      </form>
+    </div>
+  </main>
+
+<% include partials/footer %>
 
 
