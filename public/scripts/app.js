@@ -8,8 +8,8 @@ JJ('.back').click(function (){
 jQuery(document).ready(function(){
 
   //Slide down on date-time options in new-event
-  JJ("#form02 #input_datetime2").hide();
-  JJ("#form02 #input_datetime3").hide();
+  JJ(".forms #input_datetime2").hide();
+  JJ(".forms #input_datetime3").hide();
 
   JJ("#input_datetime1").click(function(){
     JJ("#input_datetime2").slideDown("slow");

@@ -116,19 +116,24 @@ module.exports = (knex) => {
       const row = rows[0];
       knex('time_slots')
       .select()
-      .where({ events_id: row.id })
-      .then((results) => {
-        const timeSlots = results[0];
-        var templateVar = {
-          option1: timeSlots.option1,
-          option2: timeSlots.option2,
-          option3: timeSlots.option3,
-          shortURL: row.shortURL,
-          title: row.title,
-          location: row.location
-          
-        };
-        res.render('availability', templateVar);
+      .where({shortURL: shortUrlId})
+      .then((rows) => {
+        const row = rows[0];
+        knex('time_slots')
+          .select()
+          .where({ events_id: row.id })
+          .then((results) => {
+            const timeSlots = results[0];
+            var templateVar = {
+              option1: timeSlots.option1,
+              option2: timeSlots.option2,
+              option3: timeSlots.option3,
+              shortURL: row.shortURL,
+              title: row.title,
+              location: row.location
+            };
+            res.render('availability', templateVar);
+          })
       })
     })
     .catch((err) => {
@@ -146,18 +151,28 @@ module.exports = (knex) => {
       const result = results[0];
       knex('users')
       .select()
-      .where({ id: results[0].users_id})
-      .then((users) => {
-        const user = users[0];
-        knex('time_slots')
-        .select()
-        .where({ events_id: result.id})
-        .then((time_id) => {
-          knex('availability')
-          .insert({
-            response: req.body.rsvp,
-            time_slots_id: time_id[0].id,
-            users_id: 7   //=====>>>> Change it here
+      .where({shortURL : id})
+      .then((results) => {
+        const result = results[0];
+        knex('users')
+          .select()
+          .where({ id: result.users_id})
+          .then((users) => {
+            const user = users[0];
+            knex('time_slots')
+              .select()
+              .where({ events_id: result.id})
+              .then((time_id) => {
+                knex('availability')
+                  .insert({
+                    response: req.body.rsvp,
+                    time_slots_id: time_id[0].id,
+                    users_id: 5   //=====>>>> Change it here
+                  })
+                  .then(() => {
+                    res.redirect(`/events/${id}/main`);
+                  })
+              })
           })
           .then(() => {
             res.redirect(`/events/${id}/main`);
@@ -234,13 +249,17 @@ module.exports = (knex) => {
   router.put('/:id/main', (req, res) => {
     let id = req.params.id;
     knex('users')
-    .select()
-    .then((rows) => {
-      knex('availability')
-      .where({ users_id : 7}) //=====>>> Change it here
-      .update({ response : req.body.rsvp })
-      .then(() => {
-        res.redirect(`/events/${id}/main`);
+      .select()
+      .then((rows) => {
+        knex('availability')
+          .where({ users_id : 5 }) //=====>>> Change it here
+          .update({ response : req.body.rsvp })
+          .then(() => {
+            res.redirect(`/events/${id}/main`);
+          })
+      })
+      .catch((err) => {
+         console.log(err);
       })
     })
     .catch((err) => {

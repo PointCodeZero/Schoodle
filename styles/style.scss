@@ -1,6 +1,6 @@
 // Global font parameters
 $font-stack:    Arial, Helvetica, sans-serif;
-$primary-color: rgb(66, 66, 66);
+$primary-color: #fff;
 
 body {
   font: 100% $font-stack;
@@ -10,8 +10,6 @@ body {
 
 * {box-sizing: border-box}
 
-
-// Main container / purple frame
 .container {
   z-index: 1;
   width: 80%;
@@ -23,150 +21,73 @@ body {
   padding-bottom: 1%;
 }
 
-// White box inside purple
 .sub-container {
   opacity: 0.95;
   z-index: 1;
-  border-radius: 5px;
+  border-radius: 0.6em;
   background-color: #343a40;
-  color: #fff;
   margin: 2em;
-}
-
-//Centering text, making button prettier
-.sub-container {
-  #welcome {
-    text-align: center;
-  }
-  #landing-text {
-    text-align: center;
-  }
-  #new-event-button {
-    padding: 1%;
-    margin: 1%;
-  }
-}
-
-// Headings
-.sub-container h1, h2, h3, a, p {
   text-align: center;
-  padding-top: .4em;
-  padding-bottom: .2em;
-  display: block;
+  padding: 0 1.5em;
 }
 
 .jumbotron {
   background-color: #343a40;
-  color: #fff;
   opacity: 0.95;
   margin-top: 10%;
+  border-radius: 0.6em;
+  text-align: center
+}
+
+.buttons {
+  margin: 2% 0;
+  padding: 2% 0;
+  width: 100%;
+}
+
+#update-button-option-1 {
+  vertical-align: middle;
+}
+
+#update-button-option-2 {
+  vertical-align: middle;
+}
+
+#update-button-option-3 {
+  vertical-align: middle;
 }
 
 // Centering header
 .header {
-  text-align: center;
   padding: 4%;
 }
 
-#form02 {
+//form button
+.forms {
   padding: 2.5% 4%;
 }
 
-// Removing pesky border around input forms
-#form02 .input:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-#proceed {
-  margin: 2%;
-  padding: 2% 0;
-  width: 95%;
-}
-// New event text fields and button
-#form02 input {
+.forms input {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0;
+  padding: 5%;
+  margin: 2% 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
-#form02 input:focus {
+.forms input:focus {
   background-color: #ddd;
   outline: none;
 }
 
-#create-event-button {
-  margin: 2%;
-  padding: 2% 0;
-  width: 95%;
-}
-
-.users_header {
+//Header for user_verify and availability page
+.header {
   padding: 5% 0 1.5% 0;
 }
 
-//User login and email fields and button
-#form03 {
-  padding: 2.5% 4%;
-}
-
-#form03 .input {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-#form04 {
-  padding: 2.5% 4%;
-}
-
-#form04 .optionH3 {
-  display: inline-block;
-  width: 50%;
-}
-// Yes i wana go button
-#form04 .option{
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  width: 50%;
-  height: auto;
-  opacity: 0.9;
-  float:right;
-}
-
-#form04 .option2{
-  background-color: rgb(206, 44, 44);
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  width: 100%;
-  height: auto;
-  opacity: 0.9;
-  margin-top: 1em;
-}
-
-
-// No i dont wanna go button
-#form05 input {
-  background-color: rgb(219, 41, 41);
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  width: 100%;
-  height: auto;
-  opacity: 0.9;
-}
-
 //Main Page
-#jumbo-header {
+#jumbo-main {
   margin-top: 5%;
 }
 
@@ -175,21 +96,12 @@ body {
 }
 
 //EDIT PAGE FORMS
-.form06 {
-  padding-bottom: 2%;
-}
-
-// Text area
-.form06 input {
-  display: inline-block;
-  width: 40%;
-  margin-left: 5%;
-  text-align: center;
-}
-
 #cant-come {
   margin-left: 12.5%;
   background: #dc3545;
+  margin-bottom: 2.4%;
+  border: none;
+  color: #fff;
 }
 
 #th1 {
@@ -210,14 +122,19 @@ body {
   width: 100%;
   background-color: #343a40;
   text-position: center;
-  color: white;
-  margin-top: 500px;
+  margin-top: 25%;
   margin-bottom: 0;
   padding: 0.5%;
   position: fixed;
   right: 0;
   bottom: 0;
   left: 0
+}
+
+.anchor {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 // Background slideshow functionality
