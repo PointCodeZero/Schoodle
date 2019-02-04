@@ -1,62 +1,51 @@
 <% include partials/header %>
 
-<div class="sub-container">
-  <h2 class="header">
-    So, you want to change your arrival time?
-  </h2>
-
-  <table class="table table-striped table-dark" >
-    <thead>
-      <tr>
-        <th scope="col" class="text-center">Date</th>
-        <th scope="col" class="text-center">Response</th>
-      </tr>
-    </thead>
-
-    <tr id="tr1">
-        <form class= "form07" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
-          <th id="th1" scope="row" name="rsvp" class="text-center"  >
-            <input type="checkbox" id="edit_datetime1"  name="rsvp" value="<%=option1%>" >
-            <%=option1%>
-          </input>
-        </th>
-        <td class="d-block text-center">
-          <button id="edit1" class ="btn btn-warning" type="submit">Update</button>
-        </form>
-        </td>
-      </tr>
-
-      <tr id="tr2">
-          <form class= "form07" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
-            <th id="th2" scope="row" name="rsvp" class="text-center"  >
-              <input type="checkbox" id="edit_datetime2"  name="rsvp" value="<%=option2%>" >
-              <%=option2%>
-            </input>
-          </th>
-          <td class="d-block text-center">
-            <button id="edit2" class ="btn btn-warning" type="submit">Update</button>
-          </form>
-          </td>
+  <div class="sub-container">
+    <h2 class="header">So, you want to change your arrival time?</h2>
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Date</th>
+          <th scope="col" class="text-center">Response</th>
         </tr>
-
-      <tr id="tr3">
-        <form class= "form07" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
-          <th id="th3" scope="row" name="rsvp" class="text-center"  >
-            <input type="checkbox" id="edit_datetime3"  name="rsvp" value="<%=option3%>" >
-            <%=option3%>
-          </input>
-        </th>
-        <td class="d-block text-center">
-          <button id="edit3" class ="btn btn-warning" type="submit">Update</button>
+      </thead>
+      <tr id="tr1">
+        <form class="forms" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
+          <th id="th1" scope="row" name="rsvp" class="text-center">
+            <input type="checkbox" id="edit_datetime1" name="rsvp" value="<%= option1 %>">
+            <%= option1 %>
+          </th>
+          <td id="update-button-option-1">
+            <button id="edit1" class="btn btn-warning align-middle" type="submit">Update</button>
+          </td>
         </form>
-        </td>
       </tr>
-
-  </tbody>
-</table>
-
-<form id="form07" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
-  <button id="cant-come" type="submit" name="rsvp" class="btn btn-warning d-block text-center w-75" value="Can't come. Sorry!">Can't come :'(</button>
-</form>
+      <tr id="tr2">
+          <form class="forms" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
+            <th id="th2" scope="row" name="rsvp" class="text-center">
+              <input type="checkbox" id="edit_datetime2" name="rsvp" value="<%= option2 %>">
+              <%= option2 %>
+            </th>
+            <td id="update-button-option-2">
+              <button id="edit2" class ="btn btn-warning" type="submit">Update</button>
+            </td>
+          </form>
+        </tr>
+      <tr id="tr3">
+        <form class="forms" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
+          <th id="th3" scope="row" name="rsvp" class="text-center">
+            <input type="checkbox" id="edit_datetime3" name="rsvp" value="<%= option3 %>">
+            <%= option3 %>
+          </th>
+          <td id="update-button-option-3">
+            <button id="edit3" class ="btn btn-warning" type="submit">Update</button>
+          </td>
+        </form>
+      </tr>
+    </tbody>
+  </table>
+  <form class="forms" action="/events/<%= shortURL %>/main?_method=PUT" method="POST">
+    <button id="cant-come" type="submit" name="rsvp" class="btn btn-warning d-block text-center w-75" value="Can't come. Sorry!">Can't come :'(</button>
+  </form>
 
 <% include partials/footer %>

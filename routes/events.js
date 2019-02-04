@@ -122,7 +122,6 @@ module.exports = (knex) => {
               shortURL: row.shortURL,
               title: row.title,
               location: row.location
-
             };
             res.render('availability', templateVar);
           })
@@ -153,7 +152,7 @@ module.exports = (knex) => {
                   .insert({
                     response: req.body.rsvp,
                     time_slots_id: time_id[0].id,
-                    users_id: 7   //=====>>>> Change it here
+                    users_id: 5   //=====>>>> Change it here
                   })
                   .then(() => {
                     res.redirect(`/events/${id}/main`);
@@ -233,7 +232,7 @@ module.exports = (knex) => {
       .select()
       .then((rows) => {
         knex('availability')
-          .where({ users_id : 7}) //=====>>> Change it here
+          .where({ users_id : 5 }) //=====>>> Change it here
           .update({ response : req.body.rsvp })
           .then(() => {
             res.redirect(`/events/${id}/main`);
