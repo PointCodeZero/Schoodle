@@ -15,25 +15,18 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 const methodOverride = require('method-override');
 
-
 // const usersRoutes = require("./routes/users");
 const eventsRoutes = require("./routes/events");
 
-
-
+// Sass auto coverter into .css
 app.use(sass({
-    /* Options */
     src: path.join(__dirname),
     dest: path.join(__dirname, 'public'),
     debug: true,
     outputStyle: 'compressed',
 }));
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-// Seperated Routes for each Resource
+// Separated Routes for each Resource
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.

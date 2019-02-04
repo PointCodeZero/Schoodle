@@ -1,29 +1,48 @@
-# Node Skeleton
+# Schoodle!
 
-## Project Setup
+### Your go-to events planner app!
 
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
+## Description
+
+Schoodle is an online calendar tool for time management and coordinating meetings. Users are asked to determine the best time and date to meet. The organizer then chooses the time that best suits everyone and the meeting is booked in your calendar.
+
+Schoodle's free online calendar helps users enjoy the integrated organization made simple. Quickly and efficiently users can create any number of events. Schoodle is the perfect tool for organization and planning.
 
 ## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Run migrations: `npm run knex migrate:latest`
-  - Check the migrations folder to see what gets created in the DB
-6. Run the seed: `npm run knex seed:run`
-  - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+In order to run Schoodle on your machine, clone the repo into your directory of choice, fire up your vagrant machine and
+make sure to install all the dependencies outlined below using the simple 
+`npm -i` 'dependency name' `--save` command.
+Follow it up with `npm run local` and you are all set!
+Go to your localhost:3000 and enjoy!
+
+## Functionality
+
+Schoodle's functionalities are implemented smoothly without the typical user authentication process. Users don't register or log in and the only way to access Schoodle is via links shared amongst each other. In order to change the number of users, the contributors have to change the event.js file and edit the users_id which ended up being the alternative to logging in.
+Upon implementing an user authentication functionality the app could actually be used online.
 
 ## Dependencies
 
-- Node 5.10.x or above
-- NPM 3.8.x or above
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "knex": "^0.11.10",
+    "knex-logger": "^0.1.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.7.0",
+    "node-sass-middleware": "^0.9.8",
+    "pg": "^6.0.2"
+
+## Contributors
+
+*Lighthouse Labs* provided the node skeleton for this project, 
+but the **DreamTeam**, aka
+**Gagan Lal,
+Lucas Cruz,
+Sarah Farah
+Stanislav Solemeanciuc**
+made it all happen!
+
+## Screenshots
+
