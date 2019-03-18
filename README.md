@@ -8,10 +8,15 @@ Schoodle is an online calendar tool for time management and coordinating meeting
 
 Schoodle's free online calendar helps users enjoy the integrated organization made simple. Quickly and efficiently users can create any number of events. Schoodle is the perfect tool for organization and planning.
 
+## Images
+
+!["main"](https://github.com/PointCodeZero/Schoodle/blob/master/docs/main.jpg)
+!["pick date"](https://github.com/PointCodeZero/Schoodle/blob/master/docs/pick_date.jpg)
+
 ## Getting Started
 
 In order to run Schoodle on your machine, clone the repo into your directory of choice, fire up your vagrant machine and
-make sure to install all the dependencies outlined below using the simple 
+make sure to install all the dependencies outlined below using the simple
 `npm -i` 'dependency name' `--save` command.
 Follow it up with `npm run local` and you are all set!
 Go to your localhost:3000 and enjoy!
@@ -36,13 +41,10 @@ Upon implementing an user authentication functionality the app could actually be
 
 ## Contributors
 
-*Lighthouse Labs* provided the node skeleton for this project, 
+_Lighthouse Labs_ provided the node skeleton for this project,
 but the **DreamTeam**, aka
 **Gagan Lal,
 Lucas Cruz,
 Sarah Farah
 Stanislav Solemeanciuc**
 made it all happen!
-
-## Screenshots
-
